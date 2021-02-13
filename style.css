@@ -1,0 +1,156 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  background: url(./mason-field-z1bunSbbOt0-unsplash.jpg) no-repeat center
+    center/cover;
+}
+
+#header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 80%;
+  height: 10vh;
+  margin: auto;
+}
+
+.container {
+  background: #08252e;
+  box-shadow: rgba(0, 0, 0, 0.8);
+}
+
+.logo,
+.nav-links {
+  display: flex;
+}
+
+.logo {
+  flex: 2;
+  color: #79deff;
+}
+
+nav {
+  flex: 3;
+  transform: scale(0, 1);
+  transform-origin: right;
+  transition: transform 400ms ease-in-out;
+}
+
+.nav-links {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #444;
+  font-weight: bold;
+  font-size: 100%;
+  transition: all 0.3s ease-in-out;
+  text-transform: uppercase;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+  color: #79deff;
+}
+
+.hamburger {
+  width: 40px;
+  cursor: pointer;
+}
+
+.nav-toggle {
+  z-index: 1000;
+  display: none;
+}
+
+.nav-toggle-label {
+  position: absolute;
+  background: #79deff;
+  border-radius: 10px;
+  top: 25%;
+  right: 0;
+  margin-right: 1em;
+  height: 40px;
+  margin-top: 6px;
+  z-index: 100;
+}
+
+.nav-toggle:checked ~ nav {
+  transform: scale(1, 1);
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+}
+
+@media screen and (min-width: 1100px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+  nav {
+    transition: none;
+    transform: scale(1, 1);
+  }
+
+  nav a::before {
+    content: "";
+    transform: scale(0, 1);
+    transition: transform ease-in-out 250ms;
+  }
+
+  nav a:hover::before {
+    transform: scale(1, 1);
+  }
+}
+
+@media screen and (max-width: 1099px) {
+  .nav-toggle:checked ~ nav {
+    transform: scale(1, 1);
+  }
+
+  #header {
+    z-index: 1000;
+  }
+
+  nav {
+    position: fixed;
+    right: 0;
+    background: #08252e;
+    box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.3);
+    top: 0%;
+    height: 100%;
+    width: 100%;
+  }
+
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 5%;
+    left: 0%;
+    text-align: center;
+    font-size: 120%;
+  }
+
+  nav ul li {
+    line-height: 5;
+    display: block;
+  }
+
+  nav ul li a {
+    padding: 1rem 7.5rem;
+  }
+}
